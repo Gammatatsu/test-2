@@ -1,0 +1,90 @@
+.popup {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(1, 1, 1, .7);
+    transform: translateY(-100%);
+    transition: transform .3s, opacity .5s;
+    overflow: hidden;
+    z-index: 3;
+
+    &--active {
+        transform: translateY(0);
+    }
+
+    &__container {
+        display: flex;
+        width: 100%;
+        height: 100%;
+
+    }
+
+    &__inner {
+        margin: auto;
+        width: 500px;
+        background: #fff;
+        padding: 100px 15px;
+        text-align: center;
+        position: relative;
+        border-radius: 8%;
+        user-select: none;
+    }
+
+    &__title {
+        font-size: 28px;
+        font-weight: 700;
+        color:$main-color;
+        margin-bottom:50px;
+
+
+    }
+
+    &__form {
+        &-input {
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #e1e1e1;
+            border:1px solid $button;
+            padding: 15px 30px;
+            margin-bottom: 25px;
+            cursor: pointer;
+            &:focus{
+                border-color: black;
+            }
+        }
+
+
+    }
+
+    &__close-button {
+        cursor: pointer;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 24px;
+
+    }
+
+    &__submit-button {
+        padding: 15px 0;
+        width: 265px;
+        background-color: $button;
+        border-radius: 50px;
+        color:$white;
+
+
+        &:hover,
+        &:active {
+            background-color: $button-active;
+        }
+    }
+}
+@media(max-width:500px){
+    .popup{
+        &__inner{
+            width: 350px;
+        }
+    }
+}

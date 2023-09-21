@@ -1,0 +1,223 @@
+.services {
+    padding: 12px 0;
+
+    &__wrapper {
+        align-items: center;
+        display: flex;
+    }
+
+    &__menu-button {
+        display: none;
+        position: relative;
+        width: 37px;
+        height: 26px;
+        background-color: transparent;
+        margin-right: 43px;
+
+        & span {
+            position: absolute;
+            width: 37px;
+            height: 4px;
+            background-color: #1FA181;
+            left: 0;
+            transition: transform .5s, opacity .5s, background-color .5s;
+
+            &:nth-child(1) {
+                transform: translateY(-13px);
+            }
+
+            &:nth-child(3) {
+                transform: translateY(13px);
+            }
+        }
+
+        &--active {
+            & span {
+                &:nth-child(1) {
+                    transform: translateY(0) rotate(-45deg);
+                }
+
+                &:nth-child(2) {
+                    opacity: 0;
+                }
+
+                &:nth-child(3) {
+                    transform: translateX(0) rotate(45deg);
+                }
+            }
+
+
+        }
+    }
+
+    &__location {
+        margin-right: auto;
+        margin-left: 43px;
+
+        &-city {
+            font-size: 14px;
+            position: relative;
+
+            &::before {
+                width: 13px;
+                height: 18px;
+                content: '';
+                position: absolute;
+                left: -18px;
+                background-image: url(/src/images/header/header-gps.svg);
+
+            }
+        }
+
+        &-adress {
+            font-size: 14px;
+            color: rgba(134, 134, 134, 1);
+        }
+    }
+
+    &__contacts {
+        align-items: center;
+        display: flex;
+        gap: 35px;
+
+        &-number {
+            color: $main-color;
+            position: relative;
+            line-height: 24px;
+
+            &::before {
+                content: '';
+                background-image: url(/src/images/header/header-phone.svg);
+                width: 28px;
+                height: 28px;
+                position: absolute;
+                left: -38px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+
+        &-button {
+            background: $button;
+            border-radius: 50px;
+            padding: 11px 24px;
+            color: $white;
+            font-size: 14px;
+
+            &:hover,
+            &:active {
+                background-color: $button-active;
+            }
+        }
+    }
+}
+
+.navigation {
+    background-color: $green-bg;
+
+    &__list {
+        display: flex;
+        gap: 30px;
+        padding: 10px 0;
+        line-height: 24px;
+    }
+
+    &__button {
+        display: none;
+        background: $button;
+        border-radius: 50px;
+        padding: 11px 24px;
+        color: $white;
+        font-size: 14px;
+        color: rgba(31, 161, 129, 1);
+        margin-top: 39px;
+
+        &:hover,
+        &:active {
+            background-color: $button;
+        }
+
+    }
+}
+
+@media(max-width:750px) {
+    .services {
+        padding: 18px 0;
+
+        &__menu-button {
+            display: block;
+        }
+
+        &__contacts {
+            display: block;
+            align-items: unset;
+            gap: 0;
+            position: absolute;
+            right: 19px;
+            top: 14px;
+            font-weight: 700;
+
+            &-number {
+                &::before {
+                    display: none;
+                }
+            }
+
+            &-button {
+                display: none;
+            }
+        }
+
+        &__location {
+            position: absolute;
+            right: 19px;
+            top: 35px;
+
+            &-adress {
+                display: none;
+            }
+
+            &-city {
+                &::before {
+                    display: none;
+                }
+            }
+
+        }
+    }
+
+    .navigation {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: rgba(69, 146, 127, 0.9);
+        padding: 48px 0px;
+        transition: transform 1s;
+        transform: translateX(-100%);
+        z-index: 2;
+
+        &--active {
+            transform: translateX(0%);
+
+        }
+
+        &__list {
+            gap: 20px;
+            flex-direction: column;
+            line-height: 24px;
+            font-size: 22px;
+            // align-items: center;
+        }
+
+        &__button {
+            display: block;
+            background-color: $white;
+            color: rgba(31, 161, 129, 1);
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 50px;
+        }
+
+    }
+
+}

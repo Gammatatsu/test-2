@@ -1,0 +1,105 @@
+.hero {
+    margin-bottom: 100px;
+    background-color: $bg-hero;
+    // position: relative;
+    background-image: url(/src/images/main/hero-bg.jpg);
+    background-position: right;
+    background-size: 50vw 100%;
+    background-repeat: no-repeat;
+
+
+    // &::after {
+    //     margin-left: 5;
+    //     position: absolute;
+    //     content: '';
+    //     background-image: url(/src/images/main/hero-bg.jpg);
+    //     background-repeat: no-repeat;
+    //     // background-size: cover;
+    //     background-position: right center;
+    //     top: 0;
+    //     left: 50%;
+    //     right: 0;
+    //     bottom: 0;
+    //     // z-index: -1;
+    // }
+
+    &__content {
+        padding-top: 144px;
+        padding-bottom: 162px;
+        width: 367px;
+
+        &-title {
+            font-weight: 700;
+            line-height: 46px;
+            font-size: 36px;
+            margin-bottom: 14px;
+            margin-top: 0;
+        }
+    }
+}
+
+@media (max-width:900px) {
+    .hero {
+        background-image: url(/src/images/main/hero-bg-mobile.jpg);
+    }
+
+}
+
+@media(max-width:750px) {
+    .hero {
+
+        // background-size: 100vh 400px;
+        &__content {
+            width: 330px;
+
+            &-title {
+                font-size: 25px;
+                line-height: 25px;
+            }
+
+            &-description {
+                font-size: 18px;
+            }
+        }
+
+    }
+
+}
+
+@media(max-width:700px) {
+    .hero {
+        margin-bottom: 50px;
+
+        background-size: 340px 340px;
+        background-position: top right;
+        &__content {
+            width: 300px;
+            padding-top: 70px;
+            padding-bottom: 100px;
+
+            &-title {
+                font-size: 25px;
+                line-height: 25px;
+            }
+
+            &-description {
+                font-size: 14px;
+            }
+        }
+
+    }
+
+}
+@media(max-width:635px){
+    .hero{
+        background-position: unset;
+        background-size: 100% 350px;
+        &__content{
+            padding-top:375px;
+            padding-bottom: 50px;
+            &-title{
+                line-height: 33px;
+            }
+        }
+    }
+}
