@@ -1,12 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin'); // Добавляем модуль CopyWebpackPlugin
 
 const devServer = (isDev) => !isDev ? {} : {
     devServer: {
         open: true,
         hot: true,
-        port: 8080,
+        port: 8082,
     }
 };
 
@@ -24,7 +25,14 @@ module.exports = ({develop}) => ({
       }),
       new MiniCssExtractPlugin({
           filename: './src/styles/main.css'
-      })
+      }),
+      new CopyWebpackPlugin({ // Добавляем новый экземпляр плагина CopyWebpackPlugin
+        patterns: [
+            { from: './src/mail.html', to: 'mail.html' },
+            { from: 'src/send.php', to: 'send.php' },
+            { from: 'vendor/phpmailer/phpmailer/src', to: 'phpmailer' }
+        ]
+    })
   ],
   module: {
       rules: [
