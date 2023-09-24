@@ -30,7 +30,7 @@ module.exports = ({develop}) => ({
         patterns: [
             { from: './src/mail.html', to: 'mail.html' },
             { from: 'src/send.php', to: 'send.php' },
-            { from: 'vendor/phpmailer/phpmailer/src', to: 'phpmailer' }
+            { from: 'src/PHPMailer', to: 'phpmailer' }
         ]
     })
   ],
